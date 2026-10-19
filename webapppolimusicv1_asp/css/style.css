@@ -1,0 +1,673 @@
+/* ============================================================
+   style.css - PoliMusic (Blue Spotify Clone)
+   Blue theme instead of green
+   ============================================================ */
+
+/* ---------- Reset & Base ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #0a0a0f;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* ---------- Blue accent color palette ---------- */
+:root {
+    --blue-primary: #1aa7ec;
+    --blue-light: #4cc4f5;
+    --blue-dark: #0d7fb5;
+    --bg-dark: #0a0a0f;
+    --bg-card: #181820;
+    --bg-sidebar: #000000;
+    --bg-input: #2a2a35;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+    --border-color: #333345;
+    --danger: #e74c3c;
+}
+
+/* ============================================================
+   LOGIN PAGE
+   ============================================================ */
+.login-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0f 0%, #0f1d2e 50%, #0a0a0f 100%);
+}
+
+.login-container {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 48px 40px;
+    width: 420px;
+    max-width: 90vw;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.login-logo {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--blue-primary);
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+}
+
+.login-logo .logo-icon {
+    font-size: 36px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.login-subtitle {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 36px;
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-form label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.login-form input:focus {
+    border-color: var(--blue-primary);
+}
+
+.btn-blue {
+    background-color: var(--blue-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 48px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+.btn-blue:hover {
+    background-color: var(--blue-light);
+    transform: scale(1.02);
+}
+
+.login-form .btn-blue {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.login-error {
+    background-color: rgba(231, 76, 60, 0.15);
+    border: 1px solid var(--danger);
+    color: #ff6b6b;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.login-hint {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.login-hint strong {
+    color: var(--blue-primary);
+}
+
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+    width: 240px;
+    background-color: var(--bg-sidebar);
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+}
+
+.sidebar-logo {
+    padding: 0 24px;
+    margin-bottom: 32px;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--blue-primary);
+}
+
+.sidebar-logo .logo-icon {
+    font-size: 22px;
+    margin-right: 6px;
+}
+
+.sidebar-nav {
+    list-style: none;
+    flex: 1;
+}
+
+.sidebar-nav li {
+    margin-bottom: 4px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 24px;
+    color: var(--text-secondary);
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    color: var(--text-primary);
+}
+
+.sidebar-nav a .nav-icon {
+    font-size: 20px;
+}
+
+.sidebar-user {
+    padding: 16px 24px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar-user img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sidebar-user .user-info {
+    overflow: hidden;
+}
+
+.sidebar-user .user-name {
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-user .user-role {
+    font-size: 12px;
+    color: var(--blue-primary);
+}
+
+.logout-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    padding: 8px 24px;
+    transition: color 0.2s;
+}
+
+.logout-link:hover {
+    color: var(--danger);
+}
+
+/* ---------- Main Content ---------- */
+.main-content {
+    margin-left: 240px;
+    flex: 1;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* ---------- Top Bar ---------- */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+    background-color: rgba(10, 10, 15, 0.9);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.welcome-message {
+    font-size: 18px;
+    color: var(--text-secondary);
+}
+
+.welcome-message strong {
+    color: var(--blue-primary);
+    font-weight: 700;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-add-song {
+    background-color: var(--blue-primary);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-add-song:hover {
+    background-color: var(--blue-light);
+    transform: scale(1.03);
+}
+
+/* ---------- Song List Section ---------- */
+.song-list-section {
+    padding: 0 32px 120px;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.section-title .blue-bar {
+    display: inline-block;
+    width: 4px;
+    height: 28px;
+    background-color: var(--blue-primary);
+    vertical-align: middle;
+    margin-right: 12px;
+    border-radius: 2px;
+}
+
+/* ---------- Song Table ---------- */
+.song-table-container {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.song-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.song-table thead th {
+    background-color: rgba(26, 167, 236, 0.1);
+    color: var(--blue-primary);
+    text-align: left;
+    padding: 14px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.song-table tbody tr {
+    border-bottom: 1px solid rgba(51, 51, 69, 0.4);
+    transition: background-color 0.15s;
+}
+
+.song-table tbody tr:hover {
+    background-color: rgba(26, 167, 236, 0.06);
+}
+
+.song-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.song-table tbody td {
+    padding: 12px 20px;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.song-table .col-index {
+    width: 50px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.song-table .col-name {
+    font-weight: 600;
+}
+
+.song-table .col-plays {
+    width: 100px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.song-table .col-actions {
+    width: 200px;
+    text-align: center;
+}
+
+.song-table .col-play {
+    width: 80px;
+    text-align: center;
+}
+
+.play-btn {
+    background-color: var(--blue-primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-btn:hover {
+    background-color: var(--blue-light);
+    transform: scale(1.1);
+    box-shadow: 0 0 12px rgba(26, 167, 236, 0.5);
+}
+
+.play-btn.playing {
+    background-color: var(--blue-light);
+    box-shadow: 0 0 16px rgba(26, 167, 236, 0.6);
+}
+
+.action-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 0 4px;
+}
+
+.action-btn:hover {
+    border-color: var(--blue-primary);
+    color: var(--blue-primary);
+}
+
+.action-btn.danger:hover {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+/* ---------- Audio Player Bar (bottom fixed) ---------- */
+.audio-player-bar {
+    position: fixed;
+    bottom: 0;
+    left: 240px;
+    right: 0;
+    background-color: #000000;
+    border-top: 1px solid var(--border-color);
+    padding: 12px 32px;
+    display: none;
+    align-items: center;
+    gap: 20px;
+    z-index: 200;
+}
+
+.audio-player-bar.visible {
+    display: flex;
+}
+
+.player-song-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 200px;
+}
+
+.player-song-info .player-song-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.player-song-info .player-song-label {
+    font-size: 12px;
+    color: var(--blue-primary);
+}
+
+.player-audio {
+    flex: 1;
+}
+
+.player-audio audio {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+}
+
+/* ============================================================
+   FORM PAGES (Add/Edit Song)
+   ============================================================ */
+.form-page {
+    padding: 32px;
+    max-width: 600px;
+}
+
+.form-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 36px;
+}
+
+.form-card h2 {
+    margin-bottom: 28px;
+    color: var(--text-primary);
+    font-size: 24px;
+}
+
+.form-card .blue-bar {
+    display: inline-block;
+    width: 4px;
+    height: 24px;
+    background-color: var(--blue-primary);
+    vertical-align: middle;
+    margin-right: 12px;
+    border-radius: 2px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: var(--blue-primary);
+}
+
+.form-group .field-hint {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.btn-secondary {
+    background: none;
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 30px;
+    padding: 12px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
+.success-message {
+    background-color: rgba(26, 167, 236, 0.12);
+    border: 1px solid var(--blue-primary);
+    color: var(--blue-light);
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+/* ---------- Access Denied ---------- */
+.access-denied {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 40px;
+}
+
+.access-denied h1 {
+    font-size: 48px;
+    color: var(--danger);
+    margin-bottom: 16px;
+}
+
+.access-denied p {
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.access-denied .btn-blue {
+    margin-top: 24px;
+}
+
+/* ---------- Empty state ---------- */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+}
+
+.empty-state .empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .sidebar-logo span:not(.logo-icon),
+    .sidebar-nav a span:not(.nav-icon),
+    .sidebar-user .user-info,
+    .logout-link span:not(:first-child) {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    .audio-player-bar {
+        left: 60px;
+    }
+}
